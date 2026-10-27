@@ -1,0 +1,3 @@
+Bot: (System checks backend) I found order #1002, but it has already shipped.
+
+Bot: Because it's on its way, I can't cancel it automatically. Once it arrives, you can return it using our free return portal: [Link]. Would you like to speak with a customer agent?

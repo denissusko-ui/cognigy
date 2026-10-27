@@ -1,0 +1,13 @@
+Bot: What is your 4-digit Order ID?
+
+User: "I don't know my order number"
+
+Bot (Strike 1 - Subtle Repair): You can find your 4-digit Order ID in your confirmation email header. Please enter those 4 digits:
+
+User: "my package is late"
+
+Bot (Strike 2 - Explicit Choice): I'm having trouble getting your Order ID. Would you like to:
+
+1️⃣ Try typing your Order ID again
+
+2️⃣ Speak to a live agent

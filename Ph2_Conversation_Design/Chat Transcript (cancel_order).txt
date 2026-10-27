@@ -1,0 +1,17 @@
+Bot: Hi! I'm the Virtual Assistant. How can I help you today?
+
+User: I need to cancel my order.
+
+Bot: I can help with that. What is your 4-digit Order ID?
+
+User: 1001
+
+Bot: Thanks! And what email address is on the order?
+
+User: alex@test.com
+
+Bot: (System checks backend) I found order #1001. It hasn't shipped yet. Are you sure you want to cancel it?
+
+User: Yes
+
+Bot: Order #1001 has been canceled. A confirmation email was sent to alex@test.com. Is there anything else I can help with?

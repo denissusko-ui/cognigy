@@ -1,0 +1,39 @@
+%% ConvAI Phase 2 — cancel_order conversation flow
+%% Import into Lucidchart: File > Import > Mermaid
+flowchart TD
+    start([Chat start]) --> greet[Greeting + prompt]
+    greet --> intent[Capture intent]
+    intent --> askid[Prompt: Order ID]
+    askid --> capid[Capture Order ID]
+    capid --> valid{Valid 4-digit format?}
+    valid -- yes --> askmail[Prompt: Email - identity check]
+    valid -- no --> fbid[fallback_count + 1]
+    fbid --> fbmax{count >= 2?}
+    fbmax -- no re-prompt --> askid
+    fbmax -- yes --> setres[Set escalation reason]
+
+    askmail --> capmail[Capture + verify email]
+    capmail --> wait["One moment while I check..."]
+    wait --> api[API: look up order]
+    api --> found{Order found & email matches?}
+    found -- no --> fbid
+    found -- yes --> shipped{Status = Shipped / Delivered?}
+
+    shipped -- yes --> ret[Cannot cancel: send return-portal link]
+    ret --> anyelse[Anything else?]
+    shipped -- no cancellable --> highval{order_total > EUR 500?}
+
+    highval -- yes high value --> setres
+    highval -- no --> confirm{Confirm cancel? explicit yes/no}
+    confirm -- yes --> exec[API: execute cancel]
+    confirm -- no --> anyelse
+    exec --> ok{API success?}
+    ok -- yes --> done[Confirm + send email]
+    ok -- no API error --> setres
+    done --> anyelse
+
+    setres --> human[Route to human agent - send context payload]
+    human --> anyelse
+    anyelse --> theend([End / close])
+
+    uni[/"Universal commands, any turn: agent to escalate, help, start over, cancel"/]
