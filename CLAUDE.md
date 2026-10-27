@@ -8,7 +8,7 @@ A multi-agent pipeline for building, testing, and documenting Cognigy conversati
 
 Pipeline: **spec → build → [automated Playbook test or manual Try-out + manual publish] → test → doc**, with **audit** available separately, on request, on any flow (not gated by the pipeline). A `dod-check-agent` pass runs automatically after each of spec-agent, build-agent, test-agent, and doc-agent — see Human-in-the-loop checkpoints below.
 
-Agent definitions live in `.claude/agents/`. There is no separate plan document, no `state.json`, and no orchestrator agent anywhere in this design — this file is the authoritative description of the pipeline. Progress through it is tracked by which deliverables exist in a flow's project folder, not by a separate state file.
+Agent definitions live in `agents/`. There is no separate plan document, no `state.json`, and no orchestrator agent anywhere in this design — this file is the authoritative description of the pipeline. Progress through it is tracked by which deliverables exist in a flow's project folder, not by a separate state file.
 
 ## Critical safety rule: no publish, no channel activation, no live training, no live send — without you doing it yourself
 
